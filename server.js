@@ -1,6 +1,8 @@
 const http = require('http')
 const fs = require('fs')
 const path = require('path')
+const {PORT} = require('./config.js')
+
 const server = http.createServer((req, res) => {
     fs.readFile(path.resolve(__dirname, 'index.html'), (err, data) => {
         res.setHeader('Content-Type', 'text/html')
@@ -13,4 +15,4 @@ const server = http.createServer((req, res) => {
         return res.end(data)
     })
 })
-server.listen(8080, () => console.log("Server running on port 8080"))
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`))
