@@ -17,7 +17,7 @@ The main module is express.js, which is imported into server.js serving as a tes
 - path
 - path-to-regexp
 ## Scripts:
-- npm start
+`npm start`
 ## References:
 - https://github.com/panbhag/myexpress/tree/master/6-more%20routes
 - https://expressjs.com/en/4x/api.html
