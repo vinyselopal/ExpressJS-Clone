@@ -1,5 +1,5 @@
 # expressClone
-### An HTTP server built using basic functionalities of an the expressjs module.
+### An HTTP server
 ## Summary
 I have demonstrated my understanding of how Express abstracts various lengthy procedures required to make a running server using http module.
 The main module is express.js, which is imported into server.js serving as a test file for the project.
