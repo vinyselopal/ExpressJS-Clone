@@ -3,6 +3,7 @@ const { PORT } = require('./config.js')
 
 const app = express()
 
+app.use(app.static('public'))
 app.post('/', (req, res, next) => {
     // const { id } = req.params
     res.body = 'successful post response'
@@ -42,5 +43,7 @@ app.get('///', (req, res) => {
     const body = 'successful response'
     res.send(body)
 })
+
+
 
 app.listen(PORT)
