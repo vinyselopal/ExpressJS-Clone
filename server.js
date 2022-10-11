@@ -3,16 +3,18 @@ const { PORT } = require('./config.js')
 
 const app = express()
 
-app.use(app.static('public'))
-app.post('/', (req, res, next) => {
+// app.use(app.static('public'))
+
+app.get('/', (req, res, next) => {
     // const { id } = req.params
-    res.body = 'successful post response'
+    body = 'successful first response'
+    res.send(body)
     next()
 })
 
 app.use('/', (req, res, next) => {
-    res.body = JSON.stringify(res.body)
-    console.log('here')
+    body = JSON.stringify(2)
+    res.json()
     next()
 })
 
