@@ -1,24 +1,24 @@
 const express = require('./lib/express.js')
-const {PORT} = require('./config.js')
+const { PORT } = require('./config.js')
 
 const app = express()
 
-app.post('/', (req, res) => {
+app.post('/', (req, res, next) => {
     // const { id } = req.params
-    const body = 'successful post response'
-    res.send(body)
-})
-
-app.use('/', (req, res, next) => {
-    res.body = 4
+    res.body = 'successful post response'
     next()
 })
 
 app.use('/', (req, res, next) => {
-    res.body = JSON.stringify(res.body) // error: invalid string length, also res.body is a huge string of /
+    res.body = JSON.stringify(res.body)
+    console.log('here')
+    next()
+})
+
+app.use('/', (req, res) => {
     const body = res.body
+    console.log('body', body)
     res.send(body)
-    next()
 })
 
 app.get('/a', (req, res, next) => {

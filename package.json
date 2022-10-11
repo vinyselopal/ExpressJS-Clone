@@ -2,7 +2,10 @@
   "name": "httpserver2",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "config.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -20,7 +23,9 @@
   "homepage": "https://github.com/vinyselopal/expressClone#readme",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "lodash": "^4.17.21",
-    "path-to-regexp": "^6.2.1"
+    "path-to-regexp": "^6.2.1",
+    "prettier": "^2.7.1",
+    "qs": "^6.11.0",
+    "standard": "^17.0.0"
   }
 }

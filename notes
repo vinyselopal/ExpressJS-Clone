@@ -2,4 +2,9 @@ To-Do
 -- file sharing
 -- express.Router()
 -- using core javascript rather than libraries for tasks such as parsing url and object cloning
--- request ad response objects should be cloned
+-- request and response objects should be cloned
+
+demo:
+-- avoid traversing through wrong methods
+-- express route overriding
+-- iterator or generator for running handlers
