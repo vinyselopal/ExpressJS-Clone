@@ -7,20 +7,19 @@ const app = express()
 
 app.get('/', (req, res, next) => {
     // const { id } = req.params
-    body = 'successful first response'
-    res.send(body)
+    const body = 'successful first response'
     next()
 })
 
 app.use('/', (req, res, next) => {
-    body = JSON.stringify(2)
-    res.json()
+    const body = 'another successful response'
+    res.send(body)
+
     next()
 })
 
 app.use('/', (req, res) => {
-    const body = res.body
-    console.log('body', body)
+    const body = 'third'
     res.send(body)
 })
 
