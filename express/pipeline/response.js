@@ -1,4 +1,4 @@
-function responseObj (res) {
+function response (req, res, next) {
     res.send = function (body) {
         try {
             res.writeHead(200, {'Content-Length': body.length, 
@@ -33,4 +33,4 @@ function responseObj (res) {
     }
 }
 
-module.exports = responseObj
+module.exports = response

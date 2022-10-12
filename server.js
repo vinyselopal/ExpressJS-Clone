@@ -1,4 +1,4 @@
-const express = require('./lib/express.js')
+const express = require('./express/src/main.js')
 const { PORT } = require('./config.js')
 const app = express()
 
