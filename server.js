@@ -1,9 +1,8 @@
 const express = require('./lib/express.js')
 const { PORT } = require('./config.js')
-
 const app = express()
 
-app.use(app.static('public'))
+app.use(app.static('/public/index.html'))
 
 app.get('/', (req, res, next) => {
     // const { id } = req.params

@@ -1,12 +1,7 @@
 To-Do
--- file sharing
--- express.Router()
--- using core javascript rather than libraries for tasks such as parsing url and object cloning
--- request and response objects should be cloned
--- route params
--- '/*' not working
+-- route params .
 
 demo:
 -- avoid traversing through wrong methods
--- express route overriding
--- iterator or generator for running handlers
+-- express route overriding // if route with same path already there, over-write it
+-- iterator or generator for running handlers // take a look at generators
