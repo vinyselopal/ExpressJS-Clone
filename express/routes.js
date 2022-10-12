@@ -17,14 +17,6 @@ function routes () {
     const putRoute = methodRoute('PUT')
     const deleteRoute = methodRoute('DELETE')
 
-    function match (req) {
-        const path = req.url 
-        const route = routeSeq.find(obj => (obj.method === 'ALL' || obj.method === req.method ) 
-            && (obj.path === 'ALL' || obj.path === path)
-            )
-        return route
-    }
-
     function use (...args) {
         let ref
         if (typeof args[0] === 'string') {
@@ -46,6 +38,6 @@ function routes () {
         routeSeq.push(ref)
     }    
 
-    return {getRoute, postRoute, putRoute, deleteRoute, match, use, routeSeq}
+    return {getRoute, postRoute, putRoute, deleteRoute, use, routeSeq}
 }
 module.exports = routes()
