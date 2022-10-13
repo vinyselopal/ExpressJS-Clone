@@ -1,13 +1,12 @@
-function routes () {
-    const routeSeq = []
+function routes (routeSeq) {
     function methodRoute (method) {
         return function (path, handler) {
             const ref = {path, handler, next: null, method}
-            const prev = routeSeq[routeSeq.length - 1]
+            const prev = routeSeq[method][routeSeq[method].length - 1]
             if (prev) {
                 prev.next = ref
             }
-            routeSeq.push(ref)
+            routeSeq[method].push(ref)
         }
         
     }
@@ -21,23 +20,26 @@ function routes () {
         let ref
         if (typeof args[0] === 'string') {
             const [ path, handler ] = args
-            ref = {path, handler, next: null, method: 'ALL'}
+            ref = {path, handler, next: null}
             
         } else if (typeof args[0] === 'object') {
             ref = args[0]
         } 
         else {
             const handler = args[0]
-            ref = {path: 'ALL', handler, next: null, method: 'ALL'}          
+            ref = {path: 'ALL', handler, next: null}          
         }
-
-        const prev = routeSeq[routeSeq.length - 1]
+        let route
+        Object.keys(routeSeq).forEach((method) => {
+            const prev = routeSeq[method][routeSeq[method].length - 1]
+            route = {...ref, method}
             if (prev) {
-                prev.next = ref
+                prev.next = route
             }
-        routeSeq.push(ref)
+            routeSeq[method].push(route)
+        })
     }    
 
-    return {getRoute, postRoute, putRoute, deleteRoute, use, routeSeq}
+    return {getRoute, postRoute, putRoute, deleteRoute, use}
 }
-module.exports = routes()
+module.exports = routes

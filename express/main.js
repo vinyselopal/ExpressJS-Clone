@@ -5,9 +5,13 @@ const static = require('./pipeline/static')
 const init = require('./handlers/init.js')
 
 function express() {
-    init(routes.use)
+    const routeSeq = {'GET': [], 'PUSH': [], 'POP': [], 'DELETE': []}
+
+    init(routes(routeSeq).use)
+
     const server = http.createServer((req, res) => {
-        middlewares(req, res)
+        console.log('routeSeq', routeSeq)
+        middlewares(req, res, routeSeq)
     })
 
     const listen = function (port) {
@@ -15,12 +19,12 @@ function express() {
     }
     return {
         listen,
-        get: routes.getRoute,
-        put: routes.putRoute,
-        post: routes.postRoute,
-        delete: routes.deleteRoute,
-        use: routes.use,
-        static
+        get: routes(routeSeq).getRoute,
+        put: routes(routeSeq).putRoute,
+        post: routes(routeSeq).postRoute,
+        delete: routes(routeSeq).deleteRoute,
+        use: routes(routeSeq).use,
+        static, routeSeq
     }
 }
 

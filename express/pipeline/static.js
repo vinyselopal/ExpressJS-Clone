@@ -30,7 +30,7 @@ function static (pathToServe) {
 
         
     }
-    const ref = {path: pathToServe, handler, next: null, method: 'GET'}
+    const ref = {path: pathToServe, handler, next: null}
     return ref
 }
 
