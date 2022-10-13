@@ -1,10 +1,6 @@
-const response = require('../pipeline/response.js')
-const request = require('../pipeline/request.js')
 const { routeSeq } = require('../routes.js')
 
 function middlewares (req, res) {
-    response(req, res)
-    request(req, res)
 
     function match (req) {
         const path = req.url 

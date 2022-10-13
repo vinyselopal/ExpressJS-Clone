@@ -2,8 +2,10 @@ const http = require('http')
 const routes = require('./routes')
 const middlewares = require('./handlers/middlewares.js')
 const static = require('./pipeline/static')
+const init = require('./handlers/init.js')
 
 function express() {
+    init(routes.use)
     const server = http.createServer((req, res) => {
         middlewares(req, res)
     })

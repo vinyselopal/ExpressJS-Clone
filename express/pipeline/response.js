@@ -1,3 +1,5 @@
+const onError = require('./onError.js')
+
 function response (req, res, next) {
     res.send = function (body) {
         try {
@@ -10,9 +12,7 @@ function response (req, res, next) {
             res.end(body)
         }
         catch (error) {
-            console.log(error)
-            res.writeHead(500)
-            res.end("server side error")
+            onError(req, res)
         }
     }
 
@@ -23,14 +23,13 @@ function response (req, res, next) {
                 'Content-Type': 'application/json'
             })
             res.end(str)
+            const onError = require('./onError.js')
         }
         catch (error) {
-            console.log(error)
-            res.writeHead(500)
-
-            res.end("server side error")
+            onError(req, res, error)
         }
     }
+    next()
 }
 
 module.exports = response
