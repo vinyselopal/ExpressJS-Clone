@@ -3,7 +3,7 @@ const onError = require('./onError.js')
 function response (req, res, next) {
     res.send = function (body) {
         try {
-            res.writeHead(200, {'Content-Length': body.length, 
+            res.writeHead(200, {'Content-Length': body.getBytes(), 
             'Content-Type': (
                 JSON.parse(body)
                 ? 'application/json'
@@ -19,7 +19,7 @@ function response (req, res, next) {
     res.json = function (body) {
         try {
             const str = JSON.stringify(body)
-            res.writeHead(200, {'Content-Length': body.length,
+            res.writeHead(200, {'Content-Length': str.getBytes(),
                 'Content-Type': 'application/json'
             })
             res.end(str)

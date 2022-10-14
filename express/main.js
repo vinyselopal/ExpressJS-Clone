@@ -1,7 +1,7 @@
 const http = require('http')
 const routes = require('./routes')
 const middlewares = require('./handlers/middlewares.js')
-const static = require('./pipeline/static')
+const static = require('./inbuiltMiddlewares/static')
 const init = require('./handlers/init.js')
 
 function express() {
@@ -10,7 +10,6 @@ function express() {
     init(routes(routeSeq).use)
 
     const server = http.createServer((req, res) => {
-        console.log('routeSeq', routeSeq)
         middlewares(req, res, routeSeq)
     })
 

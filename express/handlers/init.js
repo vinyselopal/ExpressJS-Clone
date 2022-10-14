@@ -1,5 +1,5 @@
-const response = require('../pipeline/response.js')
-const request = require('../pipeline/request.js')
+const response = require('../inbuiltMiddlewares/response.js')
+const request = require('../inbuiltMiddlewares/request.js.js')
 
 function init (use) {
     use(request)
