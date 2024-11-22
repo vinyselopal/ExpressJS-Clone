@@ -5,6 +5,7 @@ const app = express()
 app.use(app.static('/public/index.html'))
 
 app.get('/', (req, res, next) => {
+    console.log("in first")
     // const { id } = req.params
     const body = 'successful first response'
     next()
@@ -13,11 +14,11 @@ app.get('/', (req, res, next) => {
 app.use('/', (req, res, next) => {
     const body = 'another successful response'
     res.send(body)
-
     next()
 })
 
 app.use('/', (req, res) => {
+    console.log("in third")
     const body = 'third'
     res.send(body)
 })
